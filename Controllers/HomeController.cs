@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using LoginRegistration.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace LoginRegistration.Controllers
 {
@@ -49,7 +50,6 @@ namespace LoginRegistration.Controllers
                     dbContext.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                
             }
             else
             {
@@ -65,6 +65,56 @@ namespace LoginRegistration.Controllers
         {
             return View("Login");
         }
+
+        [HttpPost("loginuser")]
+        public IActionResult Login(LoginUser userSubmit)
+        {
+            if(ModelState.IsValid)
+            {
+                var userInDb = dbContext.Users.FirstOrDefault(us =>us.Email == userSubmit.LoginEmail);
+                if (userInDb == null)
+                {
+                    ModelState.AddModelError("LoginEmail", "Invalid Email");
+                    return View("Login");
+                }
+                var hasher = new PasswordHasher<LoginUser>();
+
+               
+                var result = hasher.VerifyHashedPassword(userSubmit, userInDb.Password, userSubmit.LoginPassword);
+                if (result == 0)
+                {
+                    ModelState.AddModelError("LoginPassword", "Invalid Password");
+                    return View("Login");
+                }
+                else
+                {
+                    HttpContext.Session.SetInt32("UserId", userInDb.UserId);
+                    return RedirectToAction("Success");
+                }
+            } 
+            return View("Login");
+        }
+
+        [Route("/success")]
+        [HttpGet]
+        public IActionResult Success(LoginUser userSubmit)
+        {
+            if(HttpContext.Session.GetInt32("UserId") == null)
+            {
+                return RedirectToAction("Login");
+            }
+           else{
+            return View("Success");
+           }
+        }
+        [Route("/logout")]
+        [HttpGet]
+        public IActionResult Logout()
+        {
+           HttpContext.Session.Clear();
+            return View("Login");
+        }
+
 
     }
 }

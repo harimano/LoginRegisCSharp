@@ -45,3 +45,6 @@ display: inline-block;
     margin-left: 100px;
     display: inline-block;
 }
+span{
+    color: red;
+}

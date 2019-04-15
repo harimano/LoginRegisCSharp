@@ -35,7 +35,7 @@ namespace LoginRegistration
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseSession();
             app.UseStaticFiles();
             app.UseMvc();
         }

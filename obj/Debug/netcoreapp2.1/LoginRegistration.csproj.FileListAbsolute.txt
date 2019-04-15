@@ -24,3 +24,5 @@ E:\PROGRAMMING COURSE\code_BootCamp\C#\EntityFramework\LoginRegistration\obj\Deb
 E:\PROGRAMMING COURSE\code_BootCamp\C#\EntityFramework\LoginRegistration\obj\Debug\netcoreapp2.1\LoginRegistration.dll
 E:\PROGRAMMING COURSE\code_BootCamp\C#\EntityFramework\LoginRegistration\obj\Debug\netcoreapp2.1\LoginRegistration.pdb
 E:\PROGRAMMING COURSE\code_BootCamp\C#\EntityFramework\LoginRegistration\obj\Debug\netcoreapp2.1\LoginRegistration.csproj.CopyComplete
+E:\PROGRAMMING COURSE\code_BootCamp\C#\EntityFramework\LoginRegistration\obj\Debug\netcoreapp2.1\Razor\Views\Home\Login.g.cshtml.cs
+E:\PROGRAMMING COURSE\code_BootCamp\C#\EntityFramework\LoginRegistration\obj\Debug\netcoreapp2.1\Razor\Views\Home\Success.g.cshtml.cs

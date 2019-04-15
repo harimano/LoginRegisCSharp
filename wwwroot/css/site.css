@@ -35,3 +35,13 @@ body {
         display: none;
     }
 }
+
+.top h1{
+display: inline-block;
+}
+
+
+.top a{
+    margin-left: 100px;
+    display: inline-block;
+}

@@ -15,15 +15,16 @@ namespace LoginRegistration.Models
 
         [Display(Name = "Last Name:")] 
         [Required]
-        [MinLength(2,ErrorMessage="Last Namr must be 3 characters or longer!")]
+        [MinLength(2,ErrorMessage="Last Name must be 3 characters or longer!")]
         public string LastName {get;set;}
 
         [Display(Name = "Email:")] 
         [Required]
-        public int Email {get;set;}
+        public string Email {get;set;}
 
         [Display(Name = "Password:")] 
         [Required]
+        [DataType(DataType.Password)]
         [MinLength(8,ErrorMessage="Password must be 8 characters or longer!")]
         public string Password {get;set;}
 
